@@ -154,6 +154,10 @@ Switching updates: all text content, text direction (`ltr`/`rtl`), font stack, a
 
 ## 📋 Changelog
 
+### v3.0.3 — hero stats centred on stacked layout
+- Iliya's screenshot (mobile, 23:47): the +12 / AI / 14 stats row hugged the left edge on the stacked hero, with dead space on the right — the numbers, centred over their wider labels, read as shoved to the side. Fix: `.quick-stats` is now `justify-content: center` below 1100px (whenever the hero stacks); the desktop two-column hero keeps `flex-start`, aligned with the text column. Each stat item was already `text-align: center` (number centred over its label) — unchanged.
+- Cache-busting `?v=31` → `?v=32`.
+
 ### v3.0.2 — rgba() token fix (root cause of the invisible timeline road)
 - The v3.0 accent-token conversion wrote `rgba(var(--accent-rgb), alpha)` in 53 places. That mixes the space-separated variable (`--accent-rgb: 110 164 212`) with the legacy comma alpha — invalid CSS, so browsers silently dropped every one of those declarations: the timeline road + glow, card borders, button glows, the grid overlay and the star glow were all missing (the road was the most visible casualty). Fixed by converting all 53 to the valid modern form `rgb(var(--accent-rgb) / alpha)` (and the same for `--accent-soft-rgb`).
 - Cache-busting bumped `?v=30` → `?v=31` so the corrected CSS is unambiguously fresh (v3.0 and v3.0.1 shared `?v=30`).

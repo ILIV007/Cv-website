@@ -9,6 +9,12 @@
     .hero-content { grid-template-columns: 1fr; gap: 32px; }
     .hero-visual { order: -1; min-height: 200px; }
     .hero-visual::before { width: 280px; height: 280px; }
+    /* v3.0.3: stacked hero — the stats row is a centred group now.
+       It was justify-content: flex-start, so on mobile the three stats
+       hugged the left edge with dead space on the right (and each number,
+       centred over its wider label, read as shoved to the side). Desktop
+       two-column keeps flex-start, aligned with the text column. */
+    .quick-stats { justify-content: center; }
 }
 
 @media (max-width: 900px) {
