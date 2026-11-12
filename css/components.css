@@ -25,17 +25,18 @@
 .btn:active { transform: translateY(0) scale(0.98); }
 
 .btn-primary {
-    /* v3.1.0: warm amber CTA — the single warm counterpoint on the page.
-       Dark text on amber (10.75:1) instead of white-on-blue. */
-    background: linear-gradient(135deg, var(--warm), var(--warm-deep));
-    color: var(--warm-ink);
-    box-shadow: 0 4px 20px rgb(var(--warm-rgb) / 0.35);
+    /* v3.1.1: reverted to the v3.0 blue gradient — the amber CTA is gone
+       per user feedback (previous blue was better). Token-driven, so it
+       picks up the new luminous blue family (#2563EB -> #1E50C8). */
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary-deep));
+    color: #fff;
+    box-shadow: 0 4px 20px rgb(var(--accent-rgb) / 0.3);
     font-size: 15px;
     padding: 16px 32px;
 }
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 32px rgb(var(--warm-rgb) / 0.5);
+    box-shadow: 0 10px 32px rgb(var(--accent-rgb) / 0.48);
 }
 
 .btn-ghost {
@@ -297,7 +298,7 @@
     border-color: var(--text-bright);
     box-shadow: 0 0 0 3px rgb(var(--accent-rgb) / 0.25), 0 0 14px currentColor;
 }
-.accent-swatch[data-accent-value="blue"] { background: #3B82F6; color: #3B82F6; }
+.accent-swatch[data-accent-value="blue"] { background: #7C9CFF; color: #7C9CFF; }
 .accent-swatch[data-accent-value="violet"] { background: #8B5CF6; color: #8B5CF6; }
 .accent-swatch[data-accent-value="cyan"] { background: #38bdf8; color: #38bdf8; }
 .accent-swatch[data-accent-value="emerald"] { background: #4ade80; color: #4ade80; }

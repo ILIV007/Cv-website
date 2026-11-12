@@ -154,6 +154,13 @@ Switching updates: all text content, text direction (`ltr`/`rtl`), font stack, a
 
 ## 📋 Changelog
 
+### v3.1.1 — luminous blue revision + blue CTA restored
+- User feedback on v3.1.0 live: the royal blue `#3B82F6` read as INK on the dark violet surfaces, and the yellow View Projects button was worse than the previous blue one. Both fixed.
+- New blue (ui-ux-pro-max colour data + dark-mode rule: lighter tonal variants on dark backgrounds, not darker ones): Cosmic Blue is now a luminous periwinkle blue `#7C9CFF` (HSL 225/100/74, vs-card 6.38:1 vs 4.52:1 before) with `--primary-light`/`--accent` `#AAB8FF`, `--primary-dark` `#2563EB` (white text 5.17:1), `--primary-deep` `#1E50C8` (white 6.92:1) — every step lighter than its v3.1.0 counterpart. All text/background pairs re-verified WCAG AA.
+- Distinct from Cyan: `#7C9CFF` sits at hue 225° (periwinkle blue), ΔE 35.1 from the Cyan accent `#38BDF8` (hue 198°) and ΔE 43.9 from Violet `#8B5CF6` — clearly a blue, not a cyan and not a violet. (The obvious alternative, Tailwind blue-400 `#60A5FA`, measured only ΔE 22.4 from cyan, so it was rejected.)
+- View Projects CTA reverted to the v3.0 style: blue gradient (`--primary-dark` → `--primary-deep`), white text, blue glow — no yellow anywhere on the button. Everything else from v3.1.0 is kept: stepped violet surfaces, visible borders/glows, per-project band hues, and the subtle warm amber in the background (amber nebula + scroll-progress bar).
+- Cache-busting `?v=33` → `?v=34`.
+
 ### v3.1.0 — "Vivid Cosmic" colour redesign (dark theme stays)
 - Why: the v3.0 palette felt dead — dusty low-saturation blue `#6BA4D4`; near-black surfaces `#0B1120` vs `#111827` barely differed; borders at 0.10 alpha; glows at 0.12–0.16; vivid neons confined to the tiny orbit dots; zero warm colours, everything cold blue-slate.
 - New surfaces (indigo-violet darks, stepped for depth): bg `#0D0B1E` → elevated `#151230` → card `#1C1940` → hover `#241F52`; cards are now clearly distinct from the page. Borders are indigo-tinted and visible (`rgba(165,180,252,0.22)`, strong `0.38`); glows lifted (`--accent-glow` 0.16→0.30, `--shadow-glow` 0.18→0.30); the orphaned `--star-glow` token was removed (its only use is now band-driven).

@@ -1,7 +1,8 @@
 /* ============================================================
    ILIV007 Portfolio — Design Tokens (v3.1.0 "Vivid Cosmic")
    Dark cosmic. Accent is user-switchable (see [data-accent] below);
-   default accent = Cosmic Blue, now a vivid royal blue.
+   default accent = Cosmic Blue, now a luminous periwinkle blue (v3.1.1:
+   the v3.1.0 royal blue #3B82F6 read as ink on the dark surfaces).
    v3.1.0 colour story: saturated luminous accents, indigo-violet
    surfaces with real depth (bg -> card is a visible step, not a
    whisper), visible indigo borders, stronger glows, and a warm
@@ -14,16 +15,16 @@
        --accent-rgb drives every brand glow/border/shadow so the
        accent setting re-tints the whole site. Derived tokens are
        redefined per accent below. */
-    --accent-rgb: 59 130 246;
-    --accent-soft-rgb: 147 197 253;
+    --accent-rgb: 124 156 255;
+    --accent-soft-rgb: 170 184 255;
 
     /* ---- Brand Palette (Cosmic Blue = default accent) ---- */
-    --primary: #3B82F6;
-    --primary-light: #93C5FD;
-    --primary-dark: #1D4ED8;
-    --primary-deep: #1E40AF;
-    --accent: #93C5FD;
-    --accent-glow: rgba(59, 130, 246, 0.30);
+    --primary: #7C9CFF;
+    --primary-light: #AAB8FF;
+    --primary-dark: #2563EB;
+    --primary-deep: #1E50C8;
+    --accent: #AAB8FF;
+    --accent-glow: rgba(124, 156, 255, 0.30);
 
     /* Secondary accent (fixed violet — hub/roadmap identity) */
     --violet: #8B5CF6;
@@ -56,11 +57,11 @@
 
     /* ---- Borders (indigo-tinted, actually visible) ---- */
     --border: rgba(165, 180, 252, 0.22);
-    --border-hover: rgba(59, 130, 246, 0.55);
+    --border-hover: rgba(124, 156, 255, 0.55);
     --border-strong: rgba(165, 180, 252, 0.38);
 
     /* ---- Effects ---- */
-    --glow: rgba(59, 130, 246, 0.25);
+    --glow: rgba(124, 156, 255, 0.25);
     --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.25);
     --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.35);
     --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.45);
