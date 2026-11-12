@@ -1,19 +1,30 @@
 /* ============================================================
-   ILIV007 Portfolio — Design Tokens (v2.0.3)
-   Clean, minimal, openclaw-inspired aesthetic.
+   ILIV007 Portfolio — Design Tokens (v3.0)
+   Dark cosmic. Accent is user-switchable (see [data-accent] below);
+   default accent = Cosmic Blue, the v2.x brand colour.
    ============================================================ */
 
 :root {
-    /* ---- Brand Palette ---- */
+    /* ---- Accent system ----
+       --accent-rgb drives every brand-blue glow/border/shadow so the
+       accent setting re-tints the whole site. Derived tokens are
+       redefined per accent below. */
+    --accent-rgb: 110 164 212;
+    --accent-soft-rgb: 158 200 232;
+
+    /* ---- Brand Palette (Cosmic Blue = default accent) ---- */
     --primary: #6BA4D4;
     --primary-light: #8FC0E8;
     --primary-dark: #4A7AA8;
+    --primary-deep: #35608A;
     --accent: #9EC8E8;
     --accent-glow: rgba(110, 164, 212, 0.16);
 
-    /* Secondary accent */
+    /* Secondary accent (fixed violet — hub/roadmap identity) */
     --violet: #a78bfa;
     --violet-light: #c4b5fd;
+    --violet-dark: #7c3aed;
+    --violet-deep: #6d28d9;
 
     /* Status */
     --success: #4ade80;
@@ -26,7 +37,7 @@
     --bg-card-hover: #161f32;
     --bg-glass: rgba(17, 24, 39, 0.72);
 
-    /* ---- Text (WCAG AA tuned) ---- */
+    /* ---- Text (WCAG AA tuned — verified, see README changelog v3.0) ---- */
     --text: #e8edf5;
     --text-bright: #f8fafc;
     --text-muted: #aab4c5;
@@ -41,6 +52,9 @@
     --glow: rgba(110, 164, 212, 0.12);
     --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.25);
     --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.35);
+    --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.45);
+    --shadow-glow: 0 0 40px rgba(var(--accent-rgb), 0.18);
+    --star-glow: rgba(var(--accent-rgb), 0.35);
 
     /* Orbit neon colors */
     --orbit-red: #ff2a6d;
@@ -52,6 +66,13 @@
     --font-fa: 'Vazirmatn', 'Inter', system-ui, sans-serif;
     --font-mono: 'JetBrains Mono', 'Courier New', monospace;
 
+    /* Fluid type scale */
+    --text-display: clamp(2.6rem, 6vw, 4.4rem);
+    --text-h2: clamp(1.9rem, 3.6vw, 2.75rem);
+    --text-h3: clamp(1.15rem, 2vw, 1.35rem);
+    --text-lead: clamp(1.05rem, 1.6vw, 1.25rem);
+    --text-body: 1rem;
+
     /* ---- Spacing ---- */
     --space-xs: 0.5rem;
     --space-sm: 1rem;
@@ -59,9 +80,11 @@
     --space-lg: 2.5rem;
     --space-xl: 4rem;
     --space-2xl: 6rem;
+    --space-section: clamp(4.5rem, 9vw, 6.5rem);
 
     /* ---- Layout ---- */
     --container-max: 1080px;
+    --topbar-height: 64px;
     --radius-sm: 8px;
     --radius-md: 14px;
     --radius-lg: 20px;
@@ -74,4 +97,53 @@
     --transition-fast: 0.2s var(--ease-out);
     --transition: 0.3s var(--ease-out);
     --transition-slow: 0.5s var(--ease-out);
+}
+
+/* ---- Accent: Violet ---- */
+html[data-accent="violet"] {
+    --accent-rgb: 167 139 250;
+    --accent-soft-rgb: 196 181 253;
+    --primary: #a78bfa;
+    --primary-light: #c4b5fd;
+    --primary-dark: #7c3aed;
+    --primary-deep: #6d28d9;
+    --accent: #c4b5fd;
+    --accent-glow: rgba(167, 139, 250, 0.16);
+    --border-hover: rgba(167, 139, 250, 0.35);
+    --glow: rgba(167, 139, 250, 0.12);
+}
+
+/* ---- Accent: Cyan ---- */
+html[data-accent="cyan"] {
+    --accent-rgb: 56 189 248;
+    --accent-soft-rgb: 125 211 252;
+    --primary: #38bdf8;
+    --primary-light: #7dd3fc;
+    --primary-dark: #0369a1;
+    --primary-deep: #075985;
+    --accent: #7dd3fc;
+    --accent-glow: rgba(56, 189, 248, 0.16);
+    --border-hover: rgba(56, 189, 248, 0.35);
+    --glow: rgba(56, 189, 248, 0.12);
+}
+
+/* ---- Accent: Emerald ---- */
+html[data-accent="emerald"] {
+    --accent-rgb: 74 222 128;
+    --accent-soft-rgb: 134 239 172;
+    --primary: #4ade80;
+    --primary-light: #86efac;
+    --primary-dark: #15803d;
+    --primary-deep: #166534;
+    --accent: #86efac;
+    --accent-glow: rgba(74, 222, 128, 0.16);
+    --border-hover: rgba(74, 222, 128, 0.35);
+    --glow: rgba(74, 222, 128, 0.12);
+}
+
+/* ---- Density: compact ---- */
+html[data-density="compact"] {
+    --space-section: 3.75rem;
+    --space-lg: 1.75rem;
+    --space-xl: 2.5rem;
 }

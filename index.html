@@ -11,14 +11,14 @@
     <meta name="author" content="ILIV007">
     <meta name="theme-color" content="#0B1120">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://iliv007-cv.pages.dev/">
+    <link rel="canonical" href="https://iliv007-cv.vercel.app/">
 
     <!-- Open Graph -->
     <meta property="og:title" content="ILIV007 | AI Automation Engineer">
     <meta property="og:description" content="AI systems, automation pipelines, and cloud-native tools — from idea to production.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://iliv007-cv.pages.dev/">
-    <meta property="og:image" content="https://iliv007-cv.pages.dev/assets/og-cover.svg">
+    <meta property="og:url" content="https://iliv007-cv.vercel.app/">
+    <meta property="og:image" content="https://iliv007-cv.vercel.app/assets/og-cover.svg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="en_US">
@@ -28,14 +28,14 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="ILIV007 | AI Automation Engineer">
     <meta name="twitter:description" content="AI systems, automation pipelines, and cloud-native tools — from idea to production.">
-    <meta name="twitter:image" content="https://iliv007-cv.pages.dev/assets/og-cover.svg">
+    <meta name="twitter:image" content="https://iliv007-cv.vercel.app/assets/og-cover.svg">
 
     <!-- Favicon (emoji) -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌀</text></svg>">
     <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌀</text></svg>">
 
     <!-- PWA Manifest -->
-    <link rel="manifest" href="assets/manifest.json?v=21">
+    <link rel="manifest" href="assets/manifest.json?v=30">
 
     <!-- Fonts (preconnect to both font hosts) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,12 +43,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="css/variables.css?v=21">
-    <link rel="stylesheet" href="css/base.css?v=21">
-    <link rel="stylesheet" href="css/components.css?v=21">
-    <link rel="stylesheet" href="css/sections.css?v=21">
-    <link rel="stylesheet" href="css/animations.css?v=21">
-    <link rel="stylesheet" href="css/responsive.css?v=21">
+    <link rel="stylesheet" href="css/variables.css?v=30">
+    <link rel="stylesheet" href="css/base.css?v=30">
+    <link rel="stylesheet" href="css/components.css?v=30">
+    <link rel="stylesheet" href="css/sections.css?v=30">
+    <link rel="stylesheet" href="css/animations.css?v=30">
+    <link rel="stylesheet" href="css/responsive.css?v=30">
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -59,7 +59,7 @@
       "alternateName": "Iliya",
       "jobTitle": "AI Automation Engineer",
       "description": "AI Automation Engineer & Computer Engineering Student building intelligent systems, automation pipelines, and cloud-native tools.",
-      "url": "https://iliv007-cv.pages.dev",
+      "url": "https://iliv007-cv.vercel.app",
       "email": "mailto:iliv007@proton.me",
       "sameAs": [
         "https://github.com/ILIV007",
@@ -94,64 +94,116 @@
     </div>
     <div class="grid-overlay" aria-hidden="true"></div>
 
-    <!-- Language Switcher -->
-    <nav class="lang-switch" aria-label="Language selection">
-        <button type="button" class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
-        <button type="button" class="lang-btn" data-lang="fa" aria-pressed="false">FA</button>
-    </nav>
+    <!-- Top bar: logo, section nav, language, settings -->
+    <div class="topbar" id="topbar">
+        <div class="container topbar-inner">
+            <a href="#main" class="topbar-logo"><span class="topbar-mark" aria-hidden="true">IV</span><span>ILIV007</span></a>
+            <nav class="top-nav" aria-label="Sections">
+                <a href="#about" data-en="About" data-fa="درباره من">About</a>
+                <a href="#projects" data-en="Projects" data-fa="پروژه‌ها">Projects</a>
+                <a href="#timeline" data-en="Journey" data-fa="مسیر">Journey</a>
+                <a href="#toolkit" data-en="Toolkit" data-fa="ابزارها">Toolkit</a>
+                <a href="#contact" data-en="Contact" data-fa="تماس">Contact</a>
+            </nav>
+            <div class="topbar-controls">
+                <div class="lang-switch" role="group" aria-label="Language selection">
+                    <button type="button" class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+                    <button type="button" class="lang-btn" data-lang="fa" aria-pressed="false">FA</button>
+                </div>
+                <button type="button" class="settings-btn" id="settingsBtn" aria-expanded="false" aria-controls="settingsPanel">
+                    <span class="sr-only" data-en="Settings" data-fa="تنظیمات">Settings</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                </button>
+                <div class="settings-panel" id="settingsPanel" role="dialog" aria-label="Settings" hidden>
+                    <div class="settings-title" data-en="Settings" data-fa="تنظیمات">Settings</div>
+                    <div class="settings-group">
+                        <span class="settings-label" data-en="Accent" data-fa="رنگ تم">Accent</span>
+                        <div class="accent-row" role="group" aria-label="Accent color">
+                            <button type="button" class="accent-swatch" data-accent-value="blue" aria-pressed="true"><span class="sr-only" data-en="Cosmic Blue" data-fa="آبی کیهانی">Cosmic Blue</span></button>
+                            <button type="button" class="accent-swatch" data-accent-value="violet" aria-pressed="false"><span class="sr-only" data-en="Violet" data-fa="بنفش">Violet</span></button>
+                            <button type="button" class="accent-swatch" data-accent-value="cyan" aria-pressed="false"><span class="sr-only" data-en="Cyan" data-fa="فیروزه‌ای">Cyan</span></button>
+                            <button type="button" class="accent-swatch" data-accent-value="emerald" aria-pressed="false"><span class="sr-only" data-en="Emerald" data-fa="زمردی">Emerald</span></button>
+                        </div>
+                    </div>
+                    <div class="settings-group">
+                        <span class="settings-label" data-en="Density" data-fa="چگالی">Density</span>
+                        <div class="segmented" role="group" aria-label="Density">
+                            <button type="button" data-density-value="comfortable" aria-pressed="true"><span data-en="Comfortable" data-fa="راحت">Comfortable</span></button>
+                            <button type="button" data-density-value="compact" aria-pressed="false"><span data-en="Compact" data-fa="فشرده">Compact</span></button>
+                        </div>
+                    </div>
+                    <div class="settings-group">
+                        <span class="settings-label" data-en="Motion" data-fa="حرکت">Motion</span>
+                        <div class="segmented" role="group" aria-label="Motion">
+                            <button type="button" data-motion-value="on" aria-pressed="true"><span data-en="On" data-fa="روشن">On</span></button>
+                            <button type="button" data-motion-value="off" aria-pressed="false"><span data-en="Off" data-fa="خاموش">Off</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <main id="main">
     <!-- ===== HERO ===== -->
     <header class="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-avatar" aria-hidden="true">
-                    <div class="orbit-ring"></div>
-                    <div class="orbit-ring"></div>
-                    <div class="orbit-ring"></div>
-                    <div class="avatar-core">IV</div>
-                </div>
-                <div class="hero-status">
-                    <span class="pulse-dot" aria-hidden="true"></span>
-                    <span data-en="Open for collaboration" data-fa="آماده همکاری">Open for collaboration</span>
-                </div>
-                <a href="https://t.me/ILIVIR3" target="_blank" rel="noopener noreferrer" class="hero-channel">
-                    <span class="pulse-dot" aria-hidden="true"></span>
-                    <span>🌀 ILIVIR3</span>
-                </a>
-                <h1>ILIV007</h1>
-                <p class="hero-tagline" data-en="AI Automation Engineer &amp; Computer Engineering Student" data-fa="مهندس خودکارسازی هوش مصنوعی و دانشجوی مهندسی کامپیوتر">AI Automation Engineer &amp; Computer Engineering Student</p>
-                <p class="hero-desc" data-en="I build AI systems that ship — multi-model assistants, automation pipelines, and cloud-native tools. From idea to production." data-fa="سیستم‌های هوش مصنوعی می‌سازم که واقعاً اجرا می‌شن — دستیارهای چندمدلی، خطوط لوله خودکارسازی و ابزارهای ابری. از ایده تا تولید.">I build AI systems that ship — multi-model assistants, automation pipelines, and cloud-native tools. From idea to production.</p>
-                <div class="hero-cta">
-                    <a href="#projects" class="btn btn-primary">
-                        <span aria-hidden="true">🚀</span>
-                        <span data-en="View Projects" data-fa="مشاهده پروژه‌ها">View Projects</span>
-                    </a>
-                    <a href="https://ilivir3.pages.dev/" target="_blank" rel="noopener noreferrer" class="btn btn-hub">
-                        <span aria-hidden="true">🌐</span>
-                        <span data-en="ILIVIR3 Hub" data-fa="مرکز ILIVIR3">ILIVIR3 Hub</span>
-                    </a>
-                    <a href="https://github.com/ILIV007" target="_blank" rel="noopener noreferrer" class="btn btn-github-neon">
-                        <span aria-hidden="true">🐙</span>
-                        <span>GitHub</span>
-                    </a>
-                    <a href="https://t.me/ILIVIR3" target="_blank" rel="noopener noreferrer" class="btn btn-channel">
-                        <span aria-hidden="true">📡</span>
-                        <span data-en="Channel" data-fa="کانال">Channel</span>
-                    </a>
-                </div>
-                <div class="quick-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">+12</div>
-                        <div class="stat-label" data-en="Projects" data-fa="پروژه">Projects</div>
+                <div class="hero-text">
+                    <div class="hero-pills">
+                        <div class="hero-status">
+                            <span class="pulse-dot" aria-hidden="true"></span>
+                            <span data-en="Open for collaboration" data-fa="آماده همکاری">Open for collaboration</span>
+                        </div>
+                        <a href="https://t.me/ILIVIR3" target="_blank" rel="noopener noreferrer" class="hero-channel">
+                            <span class="pulse-dot" aria-hidden="true"></span>
+                            <span>🌀 ILIVIR3</span>
+                        </a>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number">AI</div>
-                        <div class="stat-label" data-en="Focus" data-fa="تمرکز">Focus</div>
+                    <h1>ILIV007</h1>
+                    <p class="hero-tagline" data-en="AI Automation Engineer &amp; Computer Engineering Student" data-fa="مهندس خودکارسازی هوش مصنوعی و دانشجوی مهندسی کامپیوتر">AI Automation Engineer &amp; Computer Engineering Student</p>
+                    <p class="hero-desc" data-en="I build AI systems that ship — multi-model assistants, automation pipelines, and cloud-native tools. From idea to production." data-fa="سیستم‌های هوش مصنوعی می‌سازم که واقعاً اجرا می‌شن — دستیارهای چندمدلی، خطوط لوله خودکارسازی و ابزارهای ابری. از ایده تا تولید.">I build AI systems that ship — multi-model assistants, automation pipelines, and cloud-native tools. From idea to production.</p>
+                    <div class="hero-cta">
+                        <a href="#projects" class="btn btn-primary">
+                            <span aria-hidden="true">🚀</span>
+                            <span data-en="View Projects" data-fa="مشاهده پروژه‌ها">View Projects</span>
+                        </a>
+                        <a href="https://ilivir3.pages.dev/" target="_blank" rel="noopener noreferrer" class="btn btn-hub">
+                            <span aria-hidden="true">🌐</span>
+                            <span data-en="ILIVIR3 Hub" data-fa="مرکز ILIVIR3">ILIVIR3 Hub</span>
+                        </a>
+                        <a href="https://github.com/ILIV007" target="_blank" rel="noopener noreferrer" class="btn btn-github-neon">
+                            <span aria-hidden="true">🐙</span>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://t.me/ILIVIR3" target="_blank" rel="noopener noreferrer" class="btn btn-channel">
+                            <span aria-hidden="true">📡</span>
+                            <span data-en="Channel" data-fa="کانال">Channel</span>
+                        </a>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number" id="gh-stars">0</div>
-                        <div class="stat-label" data-en="GitHub Stars" data-fa="ستاره گیت‌هاب">GitHub Stars</div>
+                    <div class="quick-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">+12</div>
+                            <div class="stat-label" data-en="Projects" data-fa="پروژه">Projects</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">AI</div>
+                            <div class="stat-label" data-en="Focus" data-fa="تمرکز">Focus</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="gh-stars">0</div>
+                            <div class="stat-label" data-en="GitHub Stars" data-fa="ستاره گیت‌هاب">GitHub Stars</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual" aria-hidden="true">
+                    <div class="orbit-wrap">
+                        <div class="hero-avatar" aria-hidden="true">
+                            <div class="orbit-ring"></div>
+                            <div class="orbit-ring"></div>
+                            <div class="orbit-ring"></div>
+                            <div class="avatar-core">IV</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -229,52 +281,64 @@
             <div class="project-featured reveal">
                 <!-- IV AI -->
                 <article class="project-card">
-                    <div class="badge" data-en="Flagship" data-fa="پرچم‌دار">Flagship</div>
-                    <div class="project-icon" aria-hidden="true">🤖</div>
-                    <h3 class="project-title">IV | AI</h3>
-                    <p class="project-desc" data-en="Multi-model AI assistant on Cloudflare Workers. Prompt Master routing, sub-100ms global responses, deployed on the edge." data-fa="دستیار هوش مصنوعی چندمدلی روی Cloudflare Workers. سیستم Prompt Master برای مسیریابی، پاسخ زیر ۱۰۰ میلی‌ثانیه در سراسر دنیا، اجرا روی لبه.">Multi-model AI assistant on Cloudflare Workers. Prompt Master routing, sub-100ms global responses, deployed on the edge.</p>
-                    <div class="project-stack">
-                        <span class="tag-mono">JavaScript</span>
-                        <span class="tag-mono">Cloudflare Workers</span>
-                        <span class="tag-mono">Telegram Bot API</span>
-                        <span class="tag-mono">LLM</span>
+                    <div class="project-visual">
+                        <div class="project-icon" aria-hidden="true">🤖</div>
+                        <div class="badge" data-en="Flagship" data-fa="پرچم‌دار">Flagship</div>
                     </div>
-                    <div class="project-links">
-                        <a href="https://t.me/IVAI_Llm_bot" target="_blank" rel="noopener noreferrer" class="project-link"><span aria-hidden="true">🚀</span> <span data-en="Try it" data-fa="امتحان کن">Try it</span></a>
-                        <a href="https://github.com/ILIV007" target="_blank" rel="noopener noreferrer" class="project-link"><span aria-hidden="true">🐙</span> <span data-en="Source" data-fa="سورس کد">Source</span></a>
+                    <div class="project-body">
+                        <h3 class="project-title">IV | AI</h3>
+                        <p class="project-desc" data-en="AI assistant bot on Cloudflare Workers — smart comments and group replies, multi-model failover, prompt-master routing." data-fa="ربات دستیار هوش مصنوعی روی Cloudflare Workers — کامنت هوشمند و پاسخ گروهی، فیل‌اور چندمدلی، مسیریابی پرامپت‌مستر.">AI assistant bot on Cloudflare Workers — smart comments and group replies, multi-model failover, prompt-master routing.</p>
+                        <div class="project-stack">
+                            <span class="tag-mono">JavaScript</span>
+                            <span class="tag-mono">Cloudflare Workers</span>
+                            <span class="tag-mono">Telegram Bot API</span>
+                            <span class="tag-mono">LLM</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://t.me/IVAI_Llm_bot" target="_blank" rel="noopener noreferrer" class="project-link"><span aria-hidden="true">🚀</span> <span data-en="Try it" data-fa="امتحان کن">Try it</span></a>
+                            <a href="https://github.com/ILIV007/IVAI-bot" target="_blank" rel="noopener noreferrer" class="project-link"><span aria-hidden="true">🐙</span> <span data-en="Source" data-fa="سورس کد">Source</span></a>
+                        </div>
                     </div>
                 </article>
-                <!-- TradeAgent IV HYBRID -->
+                <!-- TradeAgent IV -->
                 <article class="project-card">
-                    <div class="badge" data-en="AI System" data-fa="سیستم هوش مصنوعی">AI System</div>
-                    <div class="project-icon" aria-hidden="true">📈</div>
-                    <h3 class="project-title">TradeAgent IV HYBRID</h3>
-                    <p class="project-desc" data-en="AI-powered cryptocurrency market intelligence system on Cloudflare Workers. Real-time Telegram automation with a proprietary Emotion Engine. 100% free-tier architecture." data-fa="سیستم هوشمند تحلیل بازار ارز دیجیتال روی Cloudflare Workers. اتوماسیون بلادرنگ تلگرام با موتور احساسات اختصاصی. معماری کاملاً رایگان.">AI-powered cryptocurrency market intelligence system on Cloudflare Workers. Real-time Telegram automation with a proprietary Emotion engine. 100% free-tier architecture.</p>
-                    <div class="project-stack">
-                        <span class="tag-mono">Cloudflare Workers</span>
-                        <span class="tag-mono">Multi-Model AI</span>
-                        <span class="tag-mono">Telegram Bot</span>
-                        <span class="tag-mono">Serverless</span>
+                    <div class="project-visual">
+                        <div class="project-icon" aria-hidden="true">📈</div>
+                        <div class="badge" data-en="AI System" data-fa="سیستم هوش مصنوعی">AI System</div>
                     </div>
-                    <div class="project-links">
-                        <a href="https://t.me/TradeAgentIV" target="_blank" rel="noopener noreferrer" class="project-link"><span aria-hidden="true">🚀</span> <span data-en="Try it" data-fa="امتحان کن">Try it</span></a>
-                        <a href="https://github.com/ILIV007/TradeAgentIV" target="_blank" rel="noopener noreferrer" class="project-link"><span aria-hidden="true">🐙</span> <span data-en="Source" data-fa="سورس کد">Source</span></a>
+                    <div class="project-body">
+                        <h3 class="project-title">TradeAgent IV</h3>
+                        <p class="project-desc" data-en="AI crypto market intelligence on Cloudflare Workers — flagship analysis, macro calendar, morning brief and top movers, posted to Telegram around the clock." data-fa="هوش بازار ارز دیجیتال روی Cloudflare Workers — تحلیل فلگ‌شیپ، تقویم ماکرو، بریف صبحگاهی و موورهای برتر، ارسال به تلگرام شبانه‌روزی.">AI crypto market intelligence on Cloudflare Workers — flagship analysis, macro calendar, morning brief and top movers, posted to Telegram around the clock.</p>
+                        <div class="project-stack">
+                            <span class="tag-mono">Cloudflare Workers</span>
+                            <span class="tag-mono">Multi-Model AI</span>
+                            <span class="tag-mono">Telegram Bot</span>
+                            <span class="tag-mono">Serverless</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://t.me/TradeAgentIV" target="_blank" rel="noopener noreferrer" class="project-link"><span aria-hidden="true">🚀</span> <span data-en="Try it" data-fa="امتحان کن">Try it</span></a>
+                            <a href="https://github.com/ILIV007/TradeAgentIV" target="_blank" rel="noopener noreferrer" class="project-link"><span aria-hidden="true">🐙</span> <span data-en="Source" data-fa="سورس کد">Source</span></a>
+                        </div>
                     </div>
                 </article>
                 <!-- ILIVIR3 HUB -->
                 <article class="project-card">
-                    <div class="badge" data-en="Portal" data-fa="پورتال">Portal</div>
-                    <div class="project-icon" aria-hidden="true">🌐</div>
-                    <h3 class="project-title">ILIVIR3 HUB</h3>
-                    <p class="project-desc" data-en="The central portal for the ILIVIR3 Telegram Bot ecosystem. A modern, responsive web gateway to access bot features, explore connected projects, and discover all resources in one place." data-fa="پورتال مرکزی اکوسیستم ربات تلگرام ILIVIR3. یک دروازه وب مدرن و واکنش‌گرا برای دسترسی به امکانات ربات، کاوش پروژه‌های مرتبط و کشف همه منابع در یک جا.">The central portal for the ILIVIR3 Telegram Bot ecosystem. A modern, responsive web gateway to access bot features, explore connected projects, and discover all resources in one place.</p>
-                    <div class="project-stack">
-                        <span class="tag-mono">TypeScript</span>
-                        <span class="tag-mono">Cloudflare Pages</span>
-                        <span class="tag-mono">Telegram Bot</span>
+                    <div class="project-visual">
+                        <div class="project-icon" aria-hidden="true">🌐</div>
+                        <div class="badge" data-en="Portal" data-fa="پورتال">Portal</div>
                     </div>
-                    <div class="project-links">
-                        <a href="https://ilivir3.pages.dev/" target="_blank" rel="noopener noreferrer" class="project-link"><span aria-hidden="true">🚀</span> <span data-en="Visit" data-fa="بازدید">Visit</span></a>
-                        <a href="https://github.com/ILIV007/ILIVIR3-hub" target="_blank" rel="noopener noreferrer" class="project-link"><span aria-hidden="true">🐙</span> <span data-en="Source" data-fa="سورس کد">Source</span></a>
+                    <div class="project-body">
+                        <h3 class="project-title">ILIVIR3 HUB</h3>
+                        <p class="project-desc" data-en="The central portal for the ILIVIR3 Telegram Bot ecosystem. A modern, responsive web gateway to access bot features, explore connected projects, and discover all resources in one place." data-fa="پورتال مرکزی اکوسیستم ربات تلگرام ILIVIR3. یک دروازه وب مدرن و واکنش‌گرا برای دسترسی به امکانات ربات، کاوش پروژه‌های مرتبط و کشف همه منابع در یک جا.">The central portal for the ILIVIR3 Telegram Bot ecosystem. A modern, responsive web gateway to access bot features, explore connected projects, and discover all resources in one place.</p>
+                        <div class="project-stack">
+                            <span class="tag-mono">TypeScript</span>
+                            <span class="tag-mono">Cloudflare Pages</span>
+                            <span class="tag-mono">Telegram Bot</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://ilivir3.pages.dev/" target="_blank" rel="noopener noreferrer" class="project-link"><span aria-hidden="true">🚀</span> <span data-en="Visit" data-fa="بازدید">Visit</span></a>
+                            <a href="https://github.com/ILIV007/ILIVIR3-hub" target="_blank" rel="noopener noreferrer" class="project-link"><span aria-hidden="true">🐙</span> <span data-en="Source" data-fa="سورس کد">Source</span></a>
+                        </div>
                     </div>
                 </article>
             </div>
@@ -282,7 +346,7 @@
                 <!-- AI-admin -->
                 <article class="project-compact">
                     <h3 class="project-title"><span aria-hidden="true">🛡️</span> <span data-en="AI-admin" data-fa="AI-admin">AI-admin</span></h3>
-                    <p class="project-desc" data-en="Telegram AI admin bot that edits posts and auto-publishes to channels with configurable settings." data-fa="ربات ادمین هوش مصنوعی تلگرام که پست‌ها رو تدوین می‌کنه و با تنظیمات قابل‌پیکربندی به‌صورت خودکار در کانال منتشر می‌کنه.">Telegram AI admin bot that edits posts and auto-publishes to channels with configurable settings.</p>
+                    <p class="project-desc" data-en="Telegram channel editor bot — rich messages, spread scheduling, album queue. Live on @ILIVIR3." data-fa="ربات ادمین کانال تلگرام — پیام‌های ریچ، زمان‌بندی گسترده، صف آلبوم. فعال روی @ILIVIR3.">Telegram channel editor bot — rich messages, spread scheduling, album queue. Live on @ILIVIR3.</p>
                     <div class="project-stack"><span class="tag-mono">JavaScript</span><span class="tag-mono">Telegram Bot</span><span class="tag-mono">AI</span></div>
                     <div class="project-links">
                         <a href="https://t.me/ILIVIR3" target="_blank" rel="noopener noreferrer" class="project-link"><span aria-hidden="true">🚀</span> <span data-en="Demo" data-fa="دمو">Demo</span></a>
@@ -311,19 +375,11 @@
                 <!-- Fredy -->
                 <article class="project-compact">
                     <h3 class="project-title"><span aria-hidden="true">📰</span> <span data-en="Fredy" data-fa="Fredy">Fredy</span></h3>
-                    <p class="project-desc" data-en="AI-powered Telegram content engine for developer channels. 12 content source providers, multi-model AI generation, smart scheduling. Serverless on Cloudflare." data-fa="موتور محتوای تلگرام با هوش مصنوعی برای کانال‌های توسعه‌دهنده. ۱۲ منبع محتوا، تولید چندمدلی، زمان‌بندی هوشمند. بدون سرور روی Cloudflare.">AI-powered Telegram content engine for developer channels. 12 content source providers, multi-model AI generation, smart scheduling. Serverless on Cloudflare.</p>
+                    <p class="project-desc" data-en="Autonomous AI tech-news publisher for @ILIVIR3 — Creator prompts, NASA APOD, arXiv Paper of the Day. Serverless on Cloudflare." data-fa="ناشر خودکار اخبار تکنولوژی با AI برای @ILIVIR3 — پرامپت‌های Creator، NASA APOD و مقاله روز arXiv. بدون سرور روی Cloudflare.">Autonomous AI tech-news publisher for @ILIVIR3 — Creator prompts, NASA APOD, arXiv Paper of the Day. Serverless on Cloudflare.</p>
                     <div class="project-stack"><span class="tag-mono">TypeScript</span><span class="tag-mono">Cloudflare Workers</span><span class="tag-mono">Gemini AI</span></div>
                     <div class="project-links">
+                        <a href="https://t.me/ILIVIR3" target="_blank" rel="noopener noreferrer" class="project-link"><span aria-hidden="true">🚀</span> <span data-en="Demo" data-fa="دمو">Demo</span></a>
                         <a href="https://github.com/ILIV007/Fredy-admin" target="_blank" rel="noopener noreferrer" class="project-link"><span aria-hidden="true">🐙</span> <span data-en="Source" data-fa="سورس کد">Source</span></a>
-                    </div>
-                </article>
-                <!-- Hades Army -->
-                <article class="project-compact">
-                    <h3 class="project-title"><span aria-hidden="true">🎯</span> <span data-en="Hades Army" data-fa="Hades Army">Hades Army</span> <span class="badge-in-progress" data-en="WIP" data-fa="در حال ساخت">WIP</span></h3>
-                    <p class="project-desc" data-en="Autonomous AI development platform on Cloudflare Workers. Multi-agent system with 7-stage code review, approval workflows, and memory management." data-fa="پلتفرم توسعه هوش مصنوعی خودمختار روی Cloudflare Workers. سیستم چندعاملی با بازبینی کد ۷ مرحله‌ای، گردش‌کار تأیید و مدیریت حافظه.">Autonomous AI development platform on Cloudflare Workers. Multi-agent system with 7-stage code review, approval workflows, and memory management.</p>
-                    <div class="project-stack"><span class="tag-mono">TypeScript</span><span class="tag-mono">Cloudflare Workers</span><span class="tag-mono">Multi-Agent</span></div>
-                    <div class="project-links">
-                        <a href="https://github.com/ILIV007/Hades-Army" target="_blank" rel="noopener noreferrer" class="project-link"><span aria-hidden="true">🐙</span> <span data-en="Source" data-fa="سورس کد">Source</span></a>
                     </div>
                 </article>
                 <!-- Warehouse DB -->
@@ -332,16 +388,7 @@
                     <p class="project-desc" data-en="SQL Server inventory system with LIFO valuation. Automated stock tracking via stored procedures and triggers." data-fa="سیستم مدیریت موجودی SQL Server با ارزش‌گذاری LIFO. ردیابی خودکار موجودی با رویه‌های ذخیره‌شده و تریگرها.">SQL Server inventory system with LIFO valuation. Automated stock tracking via stored procedures and triggers.</p>
                     <div class="project-stack"><span class="tag-mono">SQL Server</span><span class="tag-mono">T-SQL</span><span class="tag-mono">SSMS</span></div>
                     <div class="project-links">
-                        <a href="https://github.com/ILIV007" target="_blank" rel="noopener noreferrer" class="project-link"><span aria-hidden="true">🐙</span> <span data-en="Source" data-fa="سورس کد">Source</span></a>
-                    </div>
-                </article>
-                <!-- XO Game -->
-                <article class="project-compact">
-                    <h3 class="project-title"><span aria-hidden="true">⭕</span> <span data-en="XO Game" data-fa="بازی دوز">XO Game</span></h3>
-                    <p class="project-desc" data-en="Tic-tac-toe game written in C++ as a university project." data-fa="بازی دوز نوشته‌شده با C++ به‌عنوان پروژه دانشگاهی.">Tic-tac-toe game written in C++ as a university project.</p>
-                    <div class="project-stack"><span class="tag-mono">C++</span><span class="tag-mono">Console UI</span></div>
-                    <div class="project-links">
-                        <a href="https://github.com/ILIV007/XO-GitHub" target="_blank" rel="noopener noreferrer" class="project-link"><span aria-hidden="true">🐙</span> <span data-en="Source" data-fa="سورس کد">Source</span></a>
+                        <a href="https://github.com/ILIV007/Store-Management-SQL" target="_blank" rel="noopener noreferrer" class="project-link"><span aria-hidden="true">🐙</span> <span data-en="Source" data-fa="سورس کد">Source</span></a>
                     </div>
                 </article>
                 <!-- This Portfolio -->
@@ -350,7 +397,27 @@
                     <p class="project-desc" data-en="Bilingual cosmic-themed portfolio. Built through iterative, conversational development." data-fa="پورتفولیو دوزبانه با تم کیهانی. با توسعه مکرر و مکالمه‌ای ساخته شده.">Bilingual cosmic-themed portfolio. Built through iterative, conversational development.</p>
                     <div class="project-stack"><span class="tag-mono">HTML</span><span class="tag-mono">CSS</span><span class="tag-mono">JavaScript</span></div>
                     <div class="project-links">
-                        <a href="https://github.com/ILIV007" target="_blank" rel="noopener noreferrer" class="project-link"><span aria-hidden="true">🐙</span> <span data-en="Source" data-fa="سورس کد">Source</span></a>
+                        <a href="https://github.com/ILIV007/Cv-website" target="_blank" rel="noopener noreferrer" class="project-link"><span aria-hidden="true">🐙</span> <span data-en="Source" data-fa="سورس کد">Source</span></a>
+                    </div>
+                </article>
+                <!-- Proxiv3 -->
+                <article class="project-compact">
+                    <h3 class="project-title"><span aria-hidden="true">🪼</span> <span data-en="Proxiv3" data-fa="Proxiv3">Proxiv3</span></h3>
+                    <p class="project-desc" data-en="MTProto proxy distribution bot — verified proxy pool, auto-posting to @Proxiv3. Independent pipeline, no central server." data-fa="ربات توزیع پروکسی MTProto — استخر پروکسی بررسی‌شده، ارسال خودکار به @Proxiv3. پایپ‌لاین مستقل، بدون سرور مرکزی.">MTProto proxy distribution bot — verified proxy pool, auto-posting to @Proxiv3. Independent pipeline, no central server.</p>
+                    <div class="project-stack"><span class="tag-mono">Cloudflare Workers</span><span class="tag-mono">Telegram Bot</span><span class="tag-mono">MTProto</span></div>
+                    <div class="project-links">
+                        <a href="https://t.me/Prox_IVbot" target="_blank" rel="noopener noreferrer" class="project-link"><span aria-hidden="true">🚀</span> <span data-en="Try it" data-fa="امتحان کن">Try it</span></a>
+                        <a href="https://github.com/ILIV007/Proxiv3" target="_blank" rel="noopener noreferrer" class="project-link"><span aria-hidden="true">🐙</span> <span data-en="Source" data-fa="سورس کد">Source</span></a>
+                    </div>
+                </article>
+                <!-- prime-skill -->
+                <article class="project-compact">
+                    <h3 class="project-title"><span aria-hidden="true">💎</span> <span data-en="prime-skill" data-fa="prime-skill">prime-skill</span></h3>
+                    <p class="project-desc" data-en="Curated public collection of 84 agent skills in 7 categories — browsable by humans and agents." data-fa="مجموعه عمومی منتخب ۸۴ اسکیل ایجنت در ۷ دسته — قابل مرور برای انسان و ایجنت.">Curated public collection of 84 agent skills in 7 categories — browsable by humans and agents.</p>
+                    <div class="project-stack"><span class="tag-mono">Skills</span><span class="tag-mono">Agents</span><span class="tag-mono">Open Source</span></div>
+                    <div class="project-links">
+                        <a href="https://iliv007.github.io/prime-skill/" target="_blank" rel="noopener noreferrer" class="project-link"><span aria-hidden="true">🚀</span> <span data-en="Visit" data-fa="بازدید">Visit</span></a>
+                        <a href="https://github.com/ILIV007/prime-skill" target="_blank" rel="noopener noreferrer" class="project-link"><span aria-hidden="true">🐙</span> <span data-en="Source" data-fa="سورس کد">Source</span></a>
                     </div>
                 </article>
                 <!-- More Projects -->
@@ -604,11 +671,11 @@
                 <a href="https://t.me/iliv007" target="_blank" rel="noopener noreferrer" class="footer-link">Telegram</a>
                 <a href="mailto:iliv007@proton.me" class="footer-link">Email</a>
             </div>
-            <p class="footer-version">v2.1 · ILIV007 Portfolio</p>
+            <p class="footer-version">v3.0 · ILIV007 Portfolio</p>
         </div>
     </footer>
 
     <!-- Scripts -->
-    <script type="module" src="js/main.js?v=21"></script>
+    <script type="module" src="js/main.js?v=30"></script>
 </body>
 </html>

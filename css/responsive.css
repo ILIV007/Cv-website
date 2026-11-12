@@ -3,13 +3,22 @@
    ============================================================ */
 
 /* ===== BREAKPOINTS ===== */
+@media (max-width: 900px) {
+    .top-nav { display: none; }
+    .hero-content { grid-template-columns: 1fr; gap: 36px; }
+    .hero-visual { order: -1; min-height: 0; }
+    .orbit-wrap { transform: scale(1); }
+    .hero-visual::before { width: 240px; height: 240px; }
+}
+
 @media (max-width: 768px) {
-    .hero { padding: 120px 0 60px; }
+    .hero { padding: calc(var(--topbar-height) + 24px) 0 60px; }
     .quick-stats { gap: 32px; }
     .stat-number { font-size: 1.6rem; }
     .section { padding: 60px 0; }
-    .lang-switch { top: 16px; right: 16px; }
-    .project-card { padding: 24px; }
+    .project-card { padding: 0; }
+    .project-body { padding: 22px; }
+    .project-visual { padding: 20px 22px 16px; }
     .toolkit-grid { grid-template-columns: 1fr; }
     .tk-ai, .tk-span-5, .tk-span-6, .tk-span-12 {
         grid-column: span 1;
@@ -25,22 +34,10 @@
 }
 
 /* ===== RTL FIXES ===== */
-[dir="rtl"] .about-quote {
-    border-left: none;
-    border-right: 2px solid var(--primary);
-    padding-left: 0;
-    padding-right: 20px;
-    text-align: right;
-}
-[dir="rtl"] .lang-switch { right: auto; left: 24px; }
 [dir="rtl"] .lang-info { text-align: right; }
 [dir="rtl"] .work-header { flex-direction: row-reverse; }
 [dir="rtl"] .hero h1 { letter-spacing: 0; font-weight: 800; }
 [dir="rtl"] .back-to-top { right: auto; left: 24px; }
-
-@media (max-width: 768px) {
-    [dir="rtl"] .lang-switch { left: 16px; right: auto; }
-}
 
 /* ===== NO-JS FALLBACK (BUG-02 fix) ===== */
 /* Without JavaScript, reveal content is always visible.
@@ -61,10 +58,34 @@
     .star, .nebula, .orbit-ring { animation: none !important; }
 }
 
+/* ===== MOTION OFF (v3.0 settings toggle — same behaviour as above) ===== */
+html[data-motion="off"] *, html[data-motion="off"] *::before, html[data-motion="off"] *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+}
+html[data-motion="off"] .reveal { opacity: 1 !important; transform: none !important; }
+html[data-motion="off"] .star,
+html[data-motion="off"] .nebula,
+html[data-motion="off"] .orbit-ring { animation: none !important; }
+
+/* ===== DENSITY: compact (v3.0 settings toggle) ===== */
+html[data-density="compact"] .section { padding: 64px 0; }
+html[data-density="compact"] .project-body { padding: 20px 24px; }
+html[data-density="compact"] .project-compact,
+html[data-density="compact"] .edu-card,
+html[data-density="compact"] .tk-card,
+html[data-density="compact"] .contact-item { padding: 20px; }
+html[data-density="compact"] .section-header,
+html[data-density="compact"] .toolkit-header { margin-bottom: 32px; }
+
 /* ===== PRINT STYLESHEET (CODE-03 fix) ===== */
 @media print {
     .cosmic-bg,
     .grid-overlay,
+    .topbar,
+    .settings-panel,
     .lang-switch,
     .scroll-progress,
     .back-to-top,

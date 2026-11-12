@@ -4,6 +4,9 @@
 
 /* ----- Cosmic star field ----- */
 function createStars() {
+    // Motion off (settings or OS) — no twinkling stars to animate
+    if (document.documentElement.dataset.motion === 'off') return;
+
     const bg = document.getElementById('cosmicBg');
     if (!bg || bg.querySelector('.star')) return;
 
@@ -145,9 +148,30 @@ function initGitHubStars() {
         });
 }
 
+/* ----- Top bar scrolled state (v3.0) ----- */
+function initTopbar() {
+    const bar = document.getElementById('topbar');
+    if (!bar) return;
+
+    let ticking = false;
+    const onScroll = () => {
+        bar.classList.toggle('scrolled', window.scrollY > 10);
+        ticking = false;
+    };
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(onScroll);
+            ticking = true;
+        }
+    }, { passive: true });
+    onScroll();
+}
+
 /* ----- Entry point ----- */
 export function initUI() {
     createStars();
+    initTopbar();
     initReveal();
     initScrollProgress();
     initBackToTop();

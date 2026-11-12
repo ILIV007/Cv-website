@@ -62,7 +62,7 @@ a { color: inherit; }
     left: 16px;
     z-index: 2000;
     padding: 12px 20px;
-    background: var(--primary);
+    background: var(--primary-dark);
     color: #fff;
     border-radius: var(--radius-sm);
     font-weight: 700;
@@ -95,6 +95,6 @@ a { color: inherit; }
 
 /* ---- Selection ---- */
 ::selection {
-    background: var(--primary);
+    background: var(--primary-dark);
     color: #fff;
 }

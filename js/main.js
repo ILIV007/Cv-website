@@ -4,6 +4,7 @@
 
 import { initI18n } from './i18n.js';
 import { initUI } from './ui.js';
+import { initSettings } from './settings.js';
 
 function onReady(fn) {
     if (document.readyState !== 'loading') fn();
@@ -15,6 +16,7 @@ onReady(() => {
     // is replaced by the animated reveal behaviour.
     document.documentElement.classList.add('js');
 
+    initSettings();
     initI18n();
     initUI();
 });

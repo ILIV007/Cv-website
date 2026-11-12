@@ -1,26 +1,19 @@
-# 🌀 ILIV007 Portfolio — v2.0.10
+# 🌀 ILIV007 Portfolio — v3.0
 
 > **AI Automation Engineer | Computer Engineering Student**
 > A cosmic-themed, bilingual portfolio showcasing AI systems, automation workflows, and experimental software.
 
-🔗 **Live Demo**: [iliv007-cv](https://iliv007-cv.pages.dev)
+🔗 **Live Demo**: [iliv007-cv](https://iliv007-cv.vercel.app)
 
 ---
 
-## ✨ What's New in v2.0.1
+## ✨ What's New in v3.0
 
-This is a **complete rebuild** with a clean, modular structure. Highlights:
-
-- 🗂️ **Modular structure** — split the single 991-line HTML into focused CSS/JS files
-- 🐛 **Critical bug fixes** — no-JS fallback, language persistence, broken toolkit grid
-- ♿ **Accessibility overhaul** — `prefers-reduced-motion`, skip link, focus management, ARIA labels, better contrast
-- ⚡ **Performance** — preconnect hints, immutable cache headers, optimized IntersectionObserver
-- 🔍 **SEO** — JSON-LD `Person` schema, canonical URL, `robots.txt`, `sitemap.xml`
-- 🛡️ **Security** — full `_headers` config (CSP, HSTS, X-Frame-Options, etc.)
-- 🎨 **Polished UI** — scroll progress bar, back-to-top button, refined colors & motion
-- 🖨️ **Print stylesheet** — CV is now print-friendly
-- 📱 **PWA manifest** + custom 404 page
-- 🌍 **OG image** (SVG) + favicon
+- 🎨 **Full redesign, same cosmic soul** — dark cosmic theme kept and modernized: new sticky glass top bar (logo, section nav, language, settings), two-column hero with the orbit visual, left-aligned editorial section headers, featured projects as a 3-column grid with accent-tinted visual bands
+- ⚙️ **Settings, persisted** — accent hue (Cosmic Blue / Violet / Cyan / Emerald), layout density (comfortable / compact) and motion on/off, saved in `localStorage`; motion defaults to the OS `prefers-reduced-motion` setting
+- 🧩 **Design system rebuilt on tokens** — fluid `clamp()` type scale, section spacing token, accent-driven CSS variables (one hue re-tints the whole site); fixed three undefined shadow tokens (`--shadow-lg`, `--shadow-glow`, `--star-glow`) that had silently disabled card hover shadows
+- ♿ **Accessibility verified** — text contrast re-checked numerically (all body text ≥ 5.9:1 on the dark background); 44px settings touch target; keyboard-accessible settings popover (Esc / click-outside to close)
+- ⚡ **Cache-busting bumped** — all CSS/JS/manifest links `?v=22` → `?v=30`; `vercel.json` (security headers) now actually ships — it was documented in v2.2 but the file was missing
 
 See [CHANGELOG](#-changelog) below for the full list.
 
@@ -30,10 +23,11 @@ See [CHANGELOG](#-changelog) below for the full list.
 
 | Project | Description | Tech Stack |
 |---------|-------------|-----------|
-| **IV \| AI** | Multi-model AI assistant on Cloudflare Workers with Prompt Master system | JavaScript, Cloudflare Workers, Telegram API, AI/LLM |
-| **Warehouse DB** | SQL Server database with LIFO inventory & automated tracking | SQL Server, T-SQL, SSMS |
-| **Crypto Tracker** | Automated crypto price alerts via CoinMarketCap API → Telegram | N8N, Docker, Telegram Bot |
-| **Cafe Management** | Console app with dynamic menu & order processing | C++, Console UI |
+| **IV \| AI** | AI assistant bot — smart comments and group replies, multi-model failover | JavaScript, Cloudflare Workers, Telegram API, AI/LLM |
+| **TradeAgent IV** | AI crypto market intelligence — flagship analysis, macro calendar, morning brief, top movers | JavaScript, Cloudflare Workers, Telegram API, AI/LLM |
+| **ILIVIR3 HUB** | Tech command center — central portal for the ILIVIR3 bot ecosystem | TypeScript, React, Vite, Tailwind |
+| **Proxiv3** | MTProto proxy distribution bot with a verified proxy pool | Cloudflare Workers, Telegram Bot, MTProto |
+| **prime-skill** | Curated public collection of 84 agent skills in 7 categories | Skills, Agents, Open Source |
 | **This Portfolio** | Iterative conversational development, cosmic theme | HTML, CSS, JavaScript |
 
 ---
@@ -42,12 +36,12 @@ See [CHANGELOG](#-changelog) below for the full list.
 
 **Core:** Python · JavaScript · C++ · SQL · HTML/CSS
 **AI & Automation:** OpenRouter · Cloudflare Workers · N8N · Telegram API · Prompt Engineering · Hugging Face
-**Data & Infra:** SQL Server · SSMS · T-SQL · REST APIs · Docker · Cloudflare Pages
+**Data & Infra:** SQL Server · SSMS · T-SQL · REST APIs · Docker · Vercel · Cloudflare Workers
 **Tools:** Git · GitHub · VS Code · Google Colab · WordPress
 
 ---
 
-## 🗂️ Project Structure (v2.0.10)
+## 🗂️ Project Structure (v3.0)
 
 ```
 Cv-website/
@@ -62,6 +56,7 @@ Cv-website/
 │   └── responsive.css      # Breakpoints, RTL, print, reduced-motion
 ├── js/
 │   ├── i18n.js             # Bilingual switching + localStorage persistence
+│   ├── settings.js         # v3.0 display settings (accent, density, motion)
 │   ├── ui.js               # Stars, scroll reveal, progress bar, back-to-top, GitHub stars
 │   └── main.js             # Entry point — wires everything on DOM ready
 ├── assets/
@@ -69,7 +64,9 @@ Cv-website/
 │   ├── og-cover.svg        # Open Graph / Twitter card image (1200×630)
 │   └── manifest.json       # PWA web app manifest
 ├── _headers                # Cloudflare security + cache headers
-├── _redirects              # 404 → custom page
+├── _redirects              # 404 → custom page (Cloudflare)
+├── vercel.json             # Security headers for the Vercel deployment
+├── VERSION.txt             # Deployed version marker (v3.0)
 ├── robots.txt              # Crawler rules
 ├── sitemap.xml             # Sitemap
 ├── .gitignore
@@ -102,19 +99,16 @@ npx serve .
 bunx serve .
 ```
 
-### 3. Deploy to Cloudflare Pages (Recommended)
+### 3. Deploy to Vercel (Recommended — canonical host)
 ```bash
-# Install Wrangler CLI
-npm install -g wrangler
+# Install Vercel CLI
+npm install -g vercel
 
-# Login to Cloudflare
-wrangler login
-
-# Deploy
-wrangler pages deploy .
+# Deploy (first run links the project; pushes to main auto-deploy)
+vercel --prod
 ```
 
-> The `_headers` and `_redirects` files are picked up automatically by Cloudflare Pages.
+> `vercel.json` carries the security headers on Vercel. The `_headers` and `_redirects` files are kept for a Cloudflare Pages fallback deployment.
 
 ### 4. Customization
 - **Content** — edit bilingual text via `data-en` / `data-fa` attributes in `index.html`
@@ -158,6 +152,19 @@ Switching updates: all text content, text direction (`ltr`/`rtl`), font stack, a
 ---
 
 ## 📋 Changelog
+
+### v3.0 — Full redesign (dark cosmic, modernized)
+- New sticky glass top bar with logo, section nav, language switcher and a settings popover (accent, density, motion — persisted in localStorage)
+- Two-column hero (text + orbit visual), left-aligned section headers, featured projects as a 3-column grid with accent-tinted visual bands, fluid `clamp()` type scale
+- Accent system: one hue token (`--accent-rgb`) re-tints buttons, glows, borders and gradients; 4 accents — Cosmic Blue (default), Violet, Cyan, Emerald
+- Bug fixes: defined the missing `--shadow-lg` / `--shadow-glow` / `--star-glow` tokens (card hover shadows were silently absent); created the missing `vercel.json` the README already documented
+- Contrast verified numerically (see v3.0 notes in the design doc); no content or link changes — v2.2 text and URLs untouched
+- Cache-busting `?v=22` → `?v=30`
+
+### v2.2 — Vercel move + project refresh
+- Canonical host moved from `iliv007-cv.pages.dev` to `iliv007-cv.vercel.app` (canonical, OG, JSON-LD, sitemap, robots); repo homepage updated; `vercel.json` added with the security headers (`_headers`/`_redirects` kept for Cloudflare Pages fallback)
+- Project cards refreshed to Nov 2026: TradeAgent IV (v6, no more "Emotion Engine"), Fredy (v14, Creator / APOD / arXiv), IVAI-bot (v3.7.9), AI-admin (v3.5.0); Proxiv3 + prime-skill added; Hades Army (repo private) and XO Game (repo deleted) removed; Warehouse DB → Store-Management-SQL and This Portfolio → Cv-website source links fixed
+- Cache-busting `?v=21` → `?v=22` on all CSS/JS/manifest links
 
 ### v2.0.10 — Minimal Neon Roadmap
 **Timeline redesigned for elegance**

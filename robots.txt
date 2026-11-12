@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://iliv007-cv.pages.dev/sitemap.xml
+Sitemap: https://iliv007-cv.vercel.app/sitemap.xml
