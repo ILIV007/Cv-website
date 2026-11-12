@@ -49,6 +49,11 @@
     .container { padding: 0 18px; }
     .hero-cta .btn { flex: 1 1 auto; }
     .quick-stats { gap: 24px; }
+    /* v3.1.2: give the topbar controls room on narrow phones — tighter
+       gaps and paddings, but heights stay 44px (touch targets). */
+    .topbar-inner { gap: 12px; }
+    .topbar-logo { font-size: 14px; }
+    .lang-btn { padding: 0 10px; font-size: 12.5px; }
 }
 
 /* ===== RTL FIXES ===== */

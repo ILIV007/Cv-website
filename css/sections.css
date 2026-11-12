@@ -421,7 +421,7 @@
 
 /* Per-phase neon colors — cohesive with the site palette */
 .timeline-item:nth-child(1) {
-    --planet: #7C9CFF;
+    --planet: #ACBCF1;
     --planet-glow: rgb(var(--accent-rgb) / 0.65);
 }
 .timeline-item:nth-child(2) {
@@ -598,7 +598,7 @@
 .hue-rose { --band: 244 63 94; }
 .hue-sky { --band: 56 189 248; }
 .hue-emerald { --band: 74 222 128; }
-.hue-blue { --band: 124 156 255; }
+.hue-blue { --band: 172 188 241; }
 .project-visual .project-icon { margin-bottom: 0; width: 56px; height: 56px; font-size: 28px; }
 .project-visual .badge { flex-shrink: 0; margin-top: 4px; }
 .project-body { padding: 26px 28px 28px; flex: 1; display: flex; flex-direction: column; min-width: 0; }
