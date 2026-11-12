@@ -43,12 +43,15 @@ export function switchLang(lang) {
  * the browser, defaulting to English.
  */
 export function initI18n() {
-    let lang = 'en';
+    let stored = null;
     try {
-        lang = localStorage.getItem(STORAGE_KEY) || 'en';
+        stored = localStorage.getItem(STORAGE_KEY);
     } catch (e) { /* ignore */ }
 
-    // First-time visitors with Persian browser get Persian
+    // First-time visitors with a Persian browser get Persian.
+    // (v3.0.1: the old `|| 'en'` made `stored` never falsy, so this
+    // branch was dead code and FA browsers never auto-got Persian.)
+    let lang = stored || '';
     if (!lang) {
         const browserLang = (navigator.language || 'en').slice(0, 2).toLowerCase();
         lang = browserLang === 'fa' ? 'fa' : 'en';

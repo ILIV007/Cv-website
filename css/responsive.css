@@ -3,19 +3,23 @@
    ============================================================ */
 
 /* ===== BREAKPOINTS ===== */
+/* Hero stacks to one column below 1100px (v3.0.1): at 901–1100px the
+   two-column hero left a huge void beside the small orbit visual. */
+@media (max-width: 1100px) {
+    .hero-content { grid-template-columns: 1fr; gap: 32px; }
+    .hero-visual { order: -1; min-height: 200px; }
+    .hero-visual::before { width: 280px; height: 280px; }
+}
+
 @media (max-width: 900px) {
     .top-nav { display: none; }
-    .hero-content { grid-template-columns: 1fr; gap: 36px; }
-    .hero-visual { order: -1; min-height: 0; }
-    .orbit-wrap { transform: scale(1); }
-    .hero-visual::before { width: 240px; height: 240px; }
 }
 
 @media (max-width: 768px) {
-    .hero { padding: calc(var(--topbar-height) + 24px) 0 60px; }
+    .hero { padding: calc(var(--topbar-height) + 24px) 0 48px; }
     .quick-stats { gap: 32px; }
     .stat-number { font-size: 1.6rem; }
-    .section { padding: 60px 0; }
+    .section { padding: 48px 0; }
     .project-card { padding: 0; }
     .project-body { padding: 22px; }
     .project-visual { padding: 20px 22px 16px; }
@@ -24,7 +28,15 @@
         grid-column: span 1;
         grid-row: span 1;
     }
-    .back-to-top { bottom: 16px; right: 16px; width: 42px; height: 42px; }
+    /* v3.0.1 bands stack vertically on mobile */
+    .tk-more { display: block; padding: 24px; }
+    .tk-more .tk-icon { margin-bottom: 14px; }
+    .tk-more .tk-title { margin-bottom: 10px; }
+    .tk-more .tk-narrative { margin-bottom: 20px; }
+    .tk-more .tk-tags { justify-content: flex-start; max-width: none; }
+    .github-card { flex-direction: column; text-align: center; padding: 28px 24px; }
+    .github-copy { text-align: center; }
+    .back-to-top { bottom: 16px; inset-inline-end: 16px; width: 42px; height: 42px; }
 }
 
 @media (max-width: 480px) {
@@ -35,9 +47,19 @@
 
 /* ===== RTL FIXES ===== */
 [dir="rtl"] .lang-info { text-align: right; }
-[dir="rtl"] .work-header { flex-direction: row-reverse; }
 [dir="rtl"] .hero h1 { letter-spacing: 0; font-weight: 800; }
-[dir="rtl"] .back-to-top { right: auto; left: 24px; }
+/* Persian is cursive: any letter-spacing disconnects the joins and the
+   text renders broken. Zero it on every Persian-bearing element. */
+[dir="rtl"] .btn,
+[dir="rtl"] .hero-status,
+[dir="rtl"] .section-label,
+[dir="rtl"] .section h2,
+[dir="rtl"] .badge,
+[dir="rtl"] .settings-title,
+[dir="rtl"] .stat-label,
+[dir="rtl"] .timeline-date,
+[dir="rtl"] .tk-title,
+[dir="rtl"] .contact-label { letter-spacing: 0; }
 
 /* ===== NO-JS FALLBACK (BUG-02 fix) ===== */
 /* Without JavaScript, reveal content is always visible.
@@ -142,7 +164,6 @@ html[data-density="compact"] .toolkit-header { margin-bottom: 32px; }
     .timeline-item.visible .timeline-orb { transform: none !important; }
     .timeline-future .timeline-orb { background: #777 !important; }
     .timeline-future .timeline-title { color: #333 !important; }
-    .timeline-badge { color: #333 !important; border-color: #999 !important; background: #eee !important; }
 
     .stat-number, .stat-label,
     .project-title, .edu-title, .work-title,

@@ -168,9 +168,19 @@ function initTopbar() {
     onScroll();
 }
 
+/* ----- Motion toggle — re-create stars when motion is switched on -----
+   (v3.0.1: createStars() runs once at init and bails when motion is off,
+   so toggling motion back on left the sky permanently starless.) */
+function initMotionToggle() {
+    document.addEventListener('iliv-settings-changed', () => {
+        if (document.documentElement.dataset.motion !== 'off') createStars();
+    });
+}
+
 /* ----- Entry point ----- */
 export function initUI() {
     createStars();
+    initMotionToggle();
     initTopbar();
     initReveal();
     initScrollProgress();

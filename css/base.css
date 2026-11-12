@@ -31,6 +31,9 @@ body.en-mode { font-family: var(--font-en); }
 
 main { flex: 1 0 auto; }
 
+/* Anchored sections must clear the fixed top bar (v3.0.1) */
+section[id] { scroll-margin-top: calc(var(--topbar-height) + 16px); }
+
 /* ---- Typography base ---- */
 h1, h2, h3, h4 { line-height: 1.2; font-weight: 800; }
 p { line-height: 1.7; }
@@ -59,7 +62,7 @@ a { color: inherit; }
 .skip-link {
     position: absolute;
     top: -100px;
-    left: 16px;
+    inset-inline-start: 16px;
     z-index: 2000;
     padding: 12px 20px;
     background: var(--primary-dark);

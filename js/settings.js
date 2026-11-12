@@ -32,6 +32,10 @@ function applySettings(s) {
     doc.dataset.accent = s.accent;
     doc.dataset.density = s.density;
     doc.dataset.motion = resolveMotion(s.motion);
+    // Notify the UI layer (e.g. star field re-creation when motion is
+    // switched back on — v3.0.1). Listeners may not exist yet during
+    // init; that is fine, initUI() calls createStars() directly.
+    document.dispatchEvent(new CustomEvent('iliv-settings-changed', { detail: s }));
 }
 
 function saveSettings(s) {

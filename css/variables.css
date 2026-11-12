@@ -80,7 +80,7 @@
     --space-lg: 2.5rem;
     --space-xl: 4rem;
     --space-2xl: 6rem;
-    --space-section: clamp(4.5rem, 9vw, 6.5rem);
+    --space-section: clamp(3rem, 6vw, 4.5rem);
 
     /* ---- Layout ---- */
     --container-max: 1080px;
@@ -143,7 +143,7 @@ html[data-accent="emerald"] {
 
 /* ---- Density: compact ---- */
 html[data-density="compact"] {
-    --space-section: 3.75rem;
+    --space-section: 2.75rem;
     --space-lg: 1.75rem;
     --space-xl: 2.5rem;
 }

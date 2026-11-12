@@ -23,11 +23,12 @@ See [CHANGELOG](#-changelog) below for the full list.
 
 | Project | Description | Tech Stack |
 |---------|-------------|-----------|
-| **IV \| AI** | AI assistant bot — smart comments and group replies, multi-model failover | JavaScript, Cloudflare Workers, Telegram API, AI/LLM |
 | **TradeAgent IV** | AI crypto market intelligence — flagship analysis, macro calendar, morning brief, top movers | JavaScript, Cloudflare Workers, Telegram API, AI/LLM |
-| **ILIVIR3 HUB** | Tech command center — central portal for the ILIVIR3 bot ecosystem | TypeScript, React, Vite, Tailwind |
+| **IV \| AI** | AI assistant bot — smart comments and group replies, multi-model failover | JavaScript, Cloudflare Workers, Telegram API, AI/LLM |
 | **Proxiv3** | MTProto proxy distribution bot with a verified proxy pool | Cloudflare Workers, Telegram Bot, MTProto |
 | **prime-skill** | Curated public collection of 84 agent skills in 7 categories | Skills, Agents, Open Source |
+| **ILIVIR3 HUB** | Tech command center — central portal for the ILIVIR3 bot ecosystem | TypeScript, React, Vite, Tailwind |
+| **Donate** | Crypto donation page — BTC, BNB, USDT, TRX with QR codes | HTML, CSS, JavaScript |
 | **This Portfolio** | Iterative conversational development, cosmic theme | HTML, CSS, JavaScript |
 
 ---
@@ -152,6 +153,17 @@ Switching updates: all text content, text direction (`ltr`/`rtl`), font stack, a
 ---
 
 ## 📋 Changelog
+
+### v3.0.1 — Layout & RTL fixes (no version bump — fix release)
+- Projects re-sorted by professionalism: TradeAgent IV, AI-admin, Fredy, IVAI-bot, Proxiv3, prime-skill, ILIVIR3 HUB, Lyra, Arkeen Serpent, Donate (new card), Warehouse DB, This Portfolio; featured = first three
+- Hero rebuilt for mid widths: stacks to one column below 1100px, no more 100dvh void, orbit visual enlarged (100px → 160px) and no longer scaled by transform
+- Timeline rebuilt (flex + spacer architecture): 3px glowing road now clearly visible, dots structurally centred on their cards; tighter item spacing; mobile road uses logical `inset-inline-start`
+- Featured grid: 3rd card becomes a wide horizontal card at 768–1023px instead of an orphaned cell; compact + featured cards now equal-height with links pinned to the bottom
+- Also Worked With restructured as a horizontal band; GitHub card restructured as a horizontal band; Contact is 2×2 below desktop and 4-in-a-row on desktop
+- Section spacing tightened (`--space-section` 4.5–6.5rem → 3–4.5rem, headers 48px → 36px)
+- RTL fixes: mobile timeline road was on the physical left while nodes were on the right; work-header `row-reverse` double-reversed in RTL (removed); back-to-top / scroll-progress / skip-link now use logical properties; `letter-spacing` zeroed on all Persian-bearing elements (it disconnects the cursive joins)
+- JS fixes: FA-browser auto-detection branch was dead code (`|| 'en'` made it unreachable); stars are now re-created when motion is toggled back on; anchored sections get `scroll-margin-top` so the fixed top bar no longer covers them
+- Cleanup: deleted dead rules (`.card`, `.tk-tag` x3, `.badge-in-progress`, `.timeline-badge` in print); `minmax(min(...))` guards on edu/compact grids so narrow phones can't overflow
 
 ### v3.0 — Full redesign (dark cosmic, modernized)
 - New sticky glass top bar with logo, section nav, language switcher and a settings popover (accent, density, motion — persisted in localStorage)

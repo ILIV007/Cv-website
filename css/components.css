@@ -101,16 +101,6 @@
     color: var(--text-bright);
 }
 
-/* ---- Card base ---- */
-.card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    transition: border-color var(--transition), transform var(--transition),
-                box-shadow var(--transition);
-    position: relative;
-}
-
 /* ---- Tags ---- */
 .tag {
     padding: 5px 12px;
@@ -360,7 +350,7 @@
 }
 
 /* ---- Section header (v3.0: left-aligned editorial style) ---- */
-.section-header { text-align: start; margin-bottom: 48px; }
+.section-header { text-align: start; margin-bottom: 36px; }
 .section-label {
     display: inline-flex;
     align-items: center;
@@ -388,7 +378,7 @@
 /* ---- Scroll progress indicator ---- */
 .scroll-progress {
     position: fixed;
-    top: 0; left: 0;
+    top: 0; inset-inline-start: 0;
     height: 3px;
     width: 0%;
     background: linear-gradient(90deg, var(--primary), var(--accent), var(--violet));
@@ -401,7 +391,7 @@
 .back-to-top {
     position: fixed;
     bottom: 24px;
-    right: 24px;
+    inset-inline-end: 24px;
     z-index: 1000;
     width: 48px;
     height: 48px;
