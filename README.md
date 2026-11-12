@@ -154,6 +154,15 @@ Switching updates: all text content, text direction (`ltr`/`rtl`), font stack, a
 
 ## 📋 Changelog
 
+### v3.1.0 — "Vivid Cosmic" colour redesign (dark theme stays)
+- Why: the v3.0 palette felt dead — dusty low-saturation blue `#6BA4D4`; near-black surfaces `#0B1120` vs `#111827` barely differed; borders at 0.10 alpha; glows at 0.12–0.16; vivid neons confined to the tiny orbit dots; zero warm colours, everything cold blue-slate.
+- New surfaces (indigo-violet darks, stepped for depth): bg `#0D0B1E` → elevated `#151230` → card `#1C1940` → hover `#241F52`; cards are now clearly distinct from the page. Borders are indigo-tinted and visible (`rgba(165,180,252,0.22)`, strong `0.38`); glows lifted (`--accent-glow` 0.16→0.30, `--shadow-glow` 0.18→0.30); the orphaned `--star-glow` token was removed (its only use is now band-driven).
+- Vivid default accent: Cosmic Blue is now royal blue `#3B82F6` / `#93C5FD` (was dusty `#6BA4D4`); all four accents re-tuned to the same vivid system (Violet `#8B5CF6`, Cyan `#38BDF8`, Emerald `#4ADE80`) — the settings switcher still re-tints the whole site. Text lifted slightly (`#EDF1F9` / `#B7C1D6` / `#9AA7BF`); every text/background pair re-verified WCAG AA (worst case: white on violet-dark 5.70:1; cyan/emerald keep their darker `-dark` tokens so white button text stays ≥5:1).
+- Warm counterpoint (new `--warm` amber `#FBBF24`): the primary "View Projects" CTA is now an amber gradient with dark text (10.75:1); the second nebula glows warm amber; the scroll-progress bar runs blue → violet → amber.
+- Atmosphere turned up: nebulae 0.05→0.12 opacity, grid overlay 0.018→0.045, hero halo 0.16→0.32, avatar glow 0.45→0.65, orbit rings 0.25→0.45, pills/tags/badges tinted 2× stronger, timeline road glow 0.35→0.55, stat numbers now in accent colour.
+- Per-project colour identity: each of the 12 project cards carries its own band hue (`--band` on the article) — TradeAgent + Donate amber, AI-admin + ILIVIR3 HUB violet, Fredy + ARKEEN rose, IV|AI + Lyra sky, Proxiv3 + Warehouse emerald, prime-skill + This Portfolio blue. Featured cards tint their visual band + icon hover glow; compact cards get a coloured top edge.
+- No layout, content, text or link changes — colours (and the glow strengths that serve them) only. `VERSION.txt` stays v3.0; cache-busting `?v=32` → `?v=33`.
+
 ### v3.0.3 — hero stats centred on stacked layout
 - Iliya's screenshot (mobile, 23:47): the +12 / AI / 14 stats row hugged the left edge on the stacked hero, with dead space on the right — the numbers, centred over their wider labels, read as shoved to the side. Fix: `.quick-stats` is now `justify-content: center` below 1100px (whenever the hero stacks); the desktop two-column hero keeps `flex-start`, aligned with the text column. Each stat item was already `text-align: center` (number centred over its label) — unchanged.
 - Cache-busting `?v=31` → `?v=32`.
