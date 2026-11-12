@@ -154,6 +154,10 @@ Switching updates: all text content, text direction (`ltr`/`rtl`), font stack, a
 
 ## 📋 Changelog
 
+### v3.0.2 — rgba() token fix (root cause of the invisible timeline road)
+- The v3.0 accent-token conversion wrote `rgba(var(--accent-rgb), alpha)` in 53 places. That mixes the space-separated variable (`--accent-rgb: 110 164 212`) with the legacy comma alpha — invalid CSS, so browsers silently dropped every one of those declarations: the timeline road + glow, card borders, button glows, the grid overlay and the star glow were all missing (the road was the most visible casualty). Fixed by converting all 53 to the valid modern form `rgb(var(--accent-rgb) / alpha)` (and the same for `--accent-soft-rgb`).
+- Cache-busting bumped `?v=30` → `?v=31` so the corrected CSS is unambiguously fresh (v3.0 and v3.0.1 shared `?v=30`).
+
 ### v3.0.1 — Layout & RTL fixes (no version bump — fix release)
 - Projects re-sorted by professionalism: TradeAgent IV, AI-admin, Fredy, IVAI-bot, Proxiv3, prime-skill, ILIVIR3 HUB, Lyra, Arkeen Serpent, Donate (new card), Warehouse DB, This Portfolio; featured = first three
 - Hero rebuilt for mid widths: stacks to one column below 1100px, no more 100dvh void, orbit visual enlarged (100px → 160px) and no longer scaled by transform
